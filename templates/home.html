@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="container">
+
+    <div class="row">
+
+       <div class="col-md-2">
+        <!--category-->
+           <div class="list-group mt-3">
+               <a href="/" class="list-group-item list-group-item-action active bg">All Images</a>
+               {% for c in cats %}
+               <a href="category/{{c.pk}}" class="list-group-item list-group-item-action">{{c.title}}</a>
+                {% endfor %}
+           </div>
+
+       </div>
+
+        <div class="col-md-10">
+<!--        images-->
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="card-columns mt-3">
+
+                        {% for i in images %}
+
+                        <div class="card">
+                            <img class="card-img-top" src="/images/{{i.image}}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{i.title}}</h5>
+                                <p class="card-text">{{i.description}}</p>
+                                <a href="#" class="btn btn-primary bg">View</a>
+                            </div>
+                        </div>
+
+
+                        {% endfor %}
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
